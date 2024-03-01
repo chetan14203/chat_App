@@ -8,7 +8,6 @@ const feedRouter = require('./router/feed');
 const userRouter = require('./router/user');
 const chatRouter = require('./router/chat');
 const messageRouter = require("./router/message");
-const { Socket } = require('socket.io');
 const user = require('./models/user');
 
 app.use(bodyParser.json());
@@ -27,6 +26,7 @@ app.use((req, res, next) => {
 app.use('/feed',feedRouter);
 app.use('/user',userRouter);
 app.use("/chat",chatRouter);
+app.use("/message",messageRouter);
 
 app.use((error,req,res,next) => {
   console.log(error);
